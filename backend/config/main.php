@@ -12,6 +12,7 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+	'language'=> 'zh-CN',
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
