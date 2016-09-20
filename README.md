@@ -17,11 +17,14 @@ BlogDemo2是一个博客系统，需求是参照了Yii1.0里面经典的例子bl
 安装说明
 --------
 
-1、把文件解压后的目录blogdemo2拷贝到WWW服务器根目录。
+1.把文件解压后的目录blogdemo2拷贝到WWW服务器根目录。
 
-2、建立数据库blogdemo2db，导入database文件夹中的SQL文件。
+2.建立数据库blogdemo2db，导入database文件夹中的SQL文件。
 
 不同版本需要导入的SQL文件有不同，他们的对应关系参见database文件夹中的readme.md文件。
 
-3、前台地址：http://localhost/blogdemo2/frontend/web/index.php
-后台地址：http://localhost/blogdemo2/backend/web/index.php
+3.登录系统：
+前台：http://localhost/blogdemo2/frontend/web/index.php
+后台：http://localhost/blogdemo2/backend/web/index.php
+
+用户名：weixi   密码：123456
