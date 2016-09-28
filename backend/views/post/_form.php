@@ -67,7 +67,7 @@ use common\models\Adminuser;
 						->select(['nickname','id'])
 						->indexBy('id')
 						->column(),
-    		   ['prompt'=>'请选择状态']);?>
+    		   ['prompt'=>'请选择作者']);?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '新增' : '修改', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
