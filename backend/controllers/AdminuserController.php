@@ -70,10 +70,7 @@ class AdminuserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
            if($user = $model->signup())
            {
-           	if (Yii::$app->user->login($user))
-           	{
-           		return $this->goHome();
-           	}
+           		return $this->redirect(['view', 'id' => $user->id]);
            }    	
         } 
        
