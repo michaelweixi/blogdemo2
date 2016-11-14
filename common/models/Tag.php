@@ -115,6 +115,31 @@ class Tag extends \yii\db\ActiveRecord
     	}
     }
     
- 
+
+    public static function findTagWeights($limit=20)
+    {
+    	$tag_size_level = 5;
+    	 
+    	$models=Tag::find()->orderBy('frequency desc')->limit($limit)->all();
+    	$total=Tag::find()->limit($limit)->count();
+    	 
+    	$stepper=ceil($total/$tag_size_level);
+    	 
+    	$tags=array();
+    	$counter=1;
+    	 
+    	if($total>0)
+    	{
+    		foreach ($models as $model)
+    		{
+    			$weight=ceil($counter/$stepper)+1;
+    			$tags[$model->name]=$weight;
+    			$counter++;
+    		}
+    		ksort($tags);
+    	}
+    	return $tags;
+    }
+    
     
 }
