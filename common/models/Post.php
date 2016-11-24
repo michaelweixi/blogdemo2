@@ -73,6 +73,12 @@ class Post extends \yii\db\ActiveRecord
         return $this->hasMany(Comment::className(), ['post_id' => 'id']);
     }
 
+    public function getActiveComments()
+    {
+    	return $this->hasMany(Comment::className(), ['post_id' => 'id'])
+    	->where('status=:status',[':status'=>2])->orderBy('id DESC');
+    }
+    
     /**
      * @return \yii\db\ActiveQuery
      */
