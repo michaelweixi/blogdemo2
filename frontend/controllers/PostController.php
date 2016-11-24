@@ -8,6 +8,7 @@ use common\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 use common\models\Tag;
 use common\models\Comment;
@@ -31,6 +32,26 @@ class PostController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+        		
+        		
+        		'access' =>[
+        				'class' => AccessControl::className(),
+        				'rules' =>
+        				[
+        						[
+        								'actions' => ['index'],
+        								'allow' => true,
+        								'roles' => ['?'],
+        								],
+        								[
+        										'actions' => ['index', 'detail'],
+        										'allow' => true,
+        										'roles' => ['@'],
+        						],
+        						],
+        						],
+        		
+        		
         ];
     }
 
