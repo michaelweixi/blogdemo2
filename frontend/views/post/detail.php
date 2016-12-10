@@ -8,6 +8,7 @@ use frontend\components\RctReplyWidget;
 
 use yii\helpers\HtmlPurifier;
 use common\models\Comment;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PostSearch */
@@ -23,7 +24,7 @@ use common\models\Comment;
 		
 			<ol class="breadcrumb">
 			<li><a href="<?= Yii::$app->homeUrl;?>">首页</a></li>
-			<li><a href="<?= Yii::$app->homeUrl;?>?r=post/index">文章列表</a></li>
+			<li><a href="<?= Url::to(['post/index']);?>">文章列表</a></li>
 			<li class="active"><?= $model->title?></li>
 			</ol>
 			
