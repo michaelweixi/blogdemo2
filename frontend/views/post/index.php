@@ -5,6 +5,9 @@ use yii\grid\GridView;
 use yii\widgets\ListView;
 use frontend\components\TagsCloudWidget;
 use frontend\components\RctReplyWidget;
+use common\models\Post;
+use yii\caching\DbDependency;
+use yii\caching\yii\caching;
 
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\PostSearch */
@@ -43,10 +46,27 @@ use frontend\components\RctReplyWidget;
 			<div class="searchbox">
 				<ul class="list-group">
 				  <li class="list-group-item">
-				  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 查找文章
+				  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 查找文章（
+				  <?php 
+				  //数据缓存示例代码
+				  /*
+				  $data = Yii::$app->cache->get('postCount');
+				  $dependency = new DbDependency(['sql'=>'select count(id) from post']);
+				  
+				  if ($data === false)
+				  {
+				  	$data = Post::find()->count();  sleep(5);
+				  	Yii::$app->cache->set('postCount',$data,600,$dependency); //设置缓存60秒后过期
+				  }
+				  
+				  echo $data;
+				  */
+				  ?>
+				  <?= Post::find()->count();?>
+				  ）
 				  </li>
 				  <li class="list-group-item">				  
-					  <form class="form-inline" action="index.php?r=post/index" id="w0" method="get">
+					  <form class="form-inline" action="<?= Yii::$app->urlManager->createUrl(['post/index']);?>" id="w0" method="get">
 						  <div class="form-group">
 						    <input type="text" class="form-control" name="PostSearch[title]" id="w0input" placeholder="按标题">
 						  </div>
@@ -63,7 +83,19 @@ use frontend\components\RctReplyWidget;
 				  <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> 标签云
 				  </li>
 				  <li class="list-group-item">
-				  <?= TagsCloudWidget::widget(['tags'=>$tags])?>
+				  <?php 
+				  //片段缓存示例代码
+				  /*
+				  $dependency = new DbDependency(['sql'=>'select count(id) from post']);
+				  
+				  if ($this->beginCache('cache',['duration'=>600],['dependency'=>$dependency]))
+				  {
+				  	echo TagsCloudWidget::widget(['tags'=>$tags]);
+				  	$this->endCache();
+				  }
+				  */
+				  ?>
+				  <?= TagsCloudWidget::widget(['tags'=>$tags]);?>
 				   </li>
 				</ul>			
 			</div>

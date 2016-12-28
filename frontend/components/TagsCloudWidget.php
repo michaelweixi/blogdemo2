@@ -30,6 +30,7 @@ class TagsCloudWidget extends Widget
 					' <h'.$weight.' style="display:inline-block;"><span class="label label-'
 					.$fontStyle[$weight].'">'.$tag.'</span></h'.$weight.'></a>';
 		}
+		sleep(3);
 		return $tagString;
 		
 	}
