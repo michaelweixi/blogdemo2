@@ -25,7 +25,23 @@ BlogDemo2是一个博客系统，需求是参照了Yii1.0里面经典的例子bl
 
 3.登录系统：
 
+
+**V1.1 - V1.7 的源码：**
+
 前台：http://localhost/blogdemo2/frontend/web/index.php
+
+用户名：weixi   密码：123456
+
+后台：http://localhost/blogdemo2/backend/web/index.php
+
+用户名：weixi   密码：123456
+
+
+**V1.8 以后的源码：**
+
+前台：http://localhost/blogdemo2/frontend/web/index.php
+
+用户名：weixi_member   密码：123456
 
 后台：http://localhost/blogdemo2/backend/web/index.php
 
