@@ -65,7 +65,7 @@ use yii\helpers\Url;
 			  <h4>谢谢您的回复，我们会尽快审核后发布出来！</h4>
 			  
 			  <p><?= nl2br($commentModel->content);?></p>
-			  	<span class="glyphicon glyphicon-time" aria-hidden="true"></span><em><?= date('Y-m-d H:i:s',$model->create_time)."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";?></em>
+			  	<span class="glyphicon glyphicon-time" aria-hidden="true"></span><em><?= date('Y-m-d H:i:s',$commentModel->create_time)."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";?></em>
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span><em><?= Html::encode($model->author->nickname);?></em>	  
 			</div>			
 			<?php }?>
