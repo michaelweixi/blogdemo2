@@ -14,6 +14,7 @@ use yii\helpers\Url;
 /* @var $searchModel common\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$this->title = $model->title;
 ?>
 
 <div class="container">
